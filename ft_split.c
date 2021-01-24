@@ -6,7 +6,7 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 21:32:07 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/22 17:22:00 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/01/24 21:38:15 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static	char	*ft_word(const char *str, char c, int *i)
 	int		k;
 
 	if (!(s = (char *)malloc(sizeof(s) * (ft_strlen(str)))))
-		return (NULL);
+		return (0);
 	k = 0;
 	while (str[*i] != c && str[*i])
 	{
@@ -52,25 +52,25 @@ static	char	*ft_word(const char *str, char c, int *i)
 	return (s);
 }
 
-char			**ft_strsplit(const char *str, char c)
+char			**ft_split(const char *str, char c)
 {
 	int		i;
 	int		j;
-	int		wrd;
-	char	**s;
+	int		word;
+	char	**result;
 
 	i = 0;
 	j = 0;
-	wrd = ft_count_words(str, c);
-	if (!(s = (char **)malloc(sizeof(s) * (ft_count_words(str, c) + 2))))
-		return (NULL);
+	word = ft_count_words(str, c);
+	if (!(result = (char **)malloc(sizeof(result) * (ft_count_words(str, c) + 2))))
+		return (0);
 	while (str[i] == c && str[i])
 		i++;
-	while (j < wrd && str[i])
+	while (j < word && str[i])
 	{
-		s[j] = ft_word(str, c, &i);
+		result[j] = ft_word(str, c, &i);
 		j++;
 	}
-	s[j] = NULL;
-	return (s);
+	result[j] = NULL;
+	return (result);
 }
