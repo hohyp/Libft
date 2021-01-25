@@ -6,7 +6,7 @@
 #    By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/01 15:58:37 by hohypark          #+#    #+#              #
-#    Updated: 2021/01/26 03:05:30 by hohypark         ###   ########.fr        #
+#    Updated: 2021/01/26 03:12:29 by hohypark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRCS = ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strncmp.c ft_isalpha.c ft_isalnu
 
 SRCS_B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 OBJ = $(SRCS:.c=.o)
-OBJ_B = $(SRCS_B.c=o)
+OBJ_B = $(SRCS_B:.c=.o)
 CC = gcc
 CFLAG = -Wall -Wextra -Werror
 NAME = libft.a
