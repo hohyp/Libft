@@ -6,72 +6,87 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 21:32:07 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/24 21:38:15 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/01/26 02:58:31 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		ft_count_words(const char *str, char c)
+int		ft_row(const char *str, char c)
 {
-	int	word;
+	int	count;
 	int	i;
 
 	i = 0;
-	word = 0;
+	count = 0;
 	if (!str)
 		return (0);
 	while (str[i])
 	{
 		if (str[i] == c && str[i + 1] != c)
-			word++;
+			count++;
 		i++;
 	}
-	if (str[0] != '\0')
-		word++;
-	return (word);
+	if (str[i - 1] == c)
+		count--;
+	return (++count);
 }
 
-static	char	*ft_word(const char *str, char c, int *i)
+char	*ft_col(const char *str, char c, int *i)
 {
 	char	*s;
-	int		k;
+	int		j;
 
 	if (!(s = (char *)malloc(sizeof(s) * (ft_strlen(str)))))
 		return (0);
-	k = 0;
+	j = 0;
 	while (str[*i] != c && str[*i])
 	{
-		s[k] = str[*i];
-		k++;
+		s[j] = str[*i];
+		j++;
 		*i += 1;
 	}
-	s[k] = '\0';
+	s[j] = '\0';
 	while (str[*i] == c && str[*i])
 		*i += 1;
 	return (s);
 }
 
-char			**ft_split(const char *str, char c)
+void	ft_free(char **result)
+{
+	int i;
+
+	i = 0;
+	while (result[i] == 0)
+		free(result[i++]);
+	free(result);
+}
+
+char	**ft_split(const char *str, char c)
 {
 	int		i;
 	int		j;
-	int		word;
+	int		rlen;
 	char	**result;
 
 	i = 0;
 	j = 0;
-	word = ft_count_words(str, c);
-	if (!(result =
-				(char **)malloc(sizeof(result) * (ft_count_words(str, c) + 2))))
+	if (!str)
 		return (0);
 	while (str[i] == c && str[i])
 		i++;
-	while (j < word && str[i])
+	rlen = ft_row(&str[i], c);
+	if (!(result = (char **)malloc(sizeof(result) * rlen + 1)))
+		return (0);
+	while (j < rlen && str[i])
 	{
-		result[j] = ft_word(str, c, &i);
-		j++;
+		result[j] = ft_col(str, c, &i);
+		if (result[j++] == 0)
+		{
+			ft_free(result);
+			return (0);
+		}
 	}
-	result[j] = NULL;
+	result[j] = 0;
 	return (result);
 }

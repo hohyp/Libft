@@ -6,7 +6,7 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 04:40:28 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/18 04:40:30 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/01/26 02:38:29 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = -1;
 	j = -1;
-	if (s1 == 0 && s2 == 0)
+	if (!s1 || !s2)
 		return (0);
 	if (!(s3 = (char *)malloc(sizeof(char)
 					* (ft_strlen(s1) + ft_strlen(s2) + 1))))

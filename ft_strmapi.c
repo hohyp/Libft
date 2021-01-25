@@ -6,7 +6,7 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 04:42:23 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/18 04:42:24 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/01/26 02:35:19 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		idx;
 
 	if (!s || !f)
-		return (NULL);
+		return (0);
 	if (!(str = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1))))
-		return (NULL);
+		return (0);
 	idx = 0;
 	while (s[idx])
 	{

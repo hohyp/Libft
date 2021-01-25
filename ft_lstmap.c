@@ -6,7 +6,7 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 04:41:04 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/18 04:41:05 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/01/26 03:02:51 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst || !f)
 		return (0);
 	if (!(new_elem = ft_lstnew(f(lst->content))))
-	{
-		ft_lstclear(&lst, del);
 		return (0);
-	}
 	new_lst = new_elem;
 	lst = lst->next;
 	while (lst)
 	{
 		if (!(new_elem = ft_lstnew(f(lst->content))))
 		{
-			ft_lstclear(&lst, del);
 			ft_lstclear(&new_lst, del);
 			break ;
 		}
