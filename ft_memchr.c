@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void    *ft_memchr(void *src, int c, unsigned int size)
+void	*ft_memchr(void *src, int c, unsigned int size)
 {
-    char *tmp;
+	char *tmp;
 
-    tmp = (char *)src;
-    while (size--)
-    {
-        if (*tmp==c)
-            return ((void *)tmp);
-        tmp++;
-    }
-    return (0);
+	tmp = (char *)src;
+	while (size--)
+	{
+		if (*tmp == c)
+			return ((void *)tmp);
+		tmp++;
+	}
+	return (0);
 }
