@@ -6,7 +6,7 @@
 #    By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/01 15:58:37 by hohypark          #+#    #+#              #
-#    Updated: 2021/01/26 03:12:29 by hohypark         ###   ########.fr        #
+#    Updated: 2021/01/27 23:54:39 by hohypark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ all : $(NAME)
 .c.o :
 	$(CC) $(CFLAG) -c $< -o $(<:.c=.o) -I libft.h
 
-$(NAME) : ${OBJ}
-	$(AR) $(NAME) $(OBJ)
+$(NAME) : ${OBJ} $(OBJ_B)
+	$(AR) $(NAME) $(OBJ) $(OBJ_B)
 
 bonus : $(OBJ) $(OBJ_B)
 	$(AR) $(NAME) $(OBJ) $(OBJ_B)
