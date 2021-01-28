@@ -6,7 +6,7 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 21:32:07 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/26 02:58:31 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/01/29 00:25:59 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_row(const char *str, char c)
 
 	i = 0;
 	count = 0;
-	if (!str)
+	if (str[i] == 0)
 		return (0);
 	while (str[i])
 	{
@@ -37,7 +37,7 @@ char	*ft_col(const char *str, char c, int *i)
 	char	*s;
 	int		j;
 
-	if (!(s = (char *)malloc(sizeof(s) * (ft_strlen(str)))))
+	if (!(s = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1))))
 		return (0);
 	j = 0;
 	while (str[*i] != c && str[*i])
@@ -46,7 +46,7 @@ char	*ft_col(const char *str, char c, int *i)
 		j++;
 		*i += 1;
 	}
-	s[j] = '\0';
+	s[j] = 0;
 	while (str[*i] == c && str[*i])
 		*i += 1;
 	return (s);
@@ -57,7 +57,7 @@ void	ft_free(char **result)
 	int i;
 
 	i = 0;
-	while (result[i] == 0)
+	while (result[i] != 0)
 		free(result[i++]);
 	free(result);
 }
@@ -76,7 +76,7 @@ char	**ft_split(const char *str, char c)
 	while (str[i] == c && str[i])
 		i++;
 	rlen = ft_row(&str[i], c);
-	if (!(result = (char **)malloc(sizeof(result) * rlen + 1)))
+	if (!(result = (char **)malloc(sizeof(char *) * (rlen + 1))))
 		return (0);
 	while (j < rlen && str[i])
 	{
@@ -87,6 +87,6 @@ char	**ft_split(const char *str, char c)
 			return (0);
 		}
 	}
-	result[j] = 0;
+	result[j] = NULL;
 	return (result);
 }
