@@ -6,7 +6,7 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 16:06:39 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/18 04:42:54 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/01/30 18:58:22 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char			*ft_strchr(char *str, int c);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 char			*ft_strrchr(char *str, int c);
 void			*ft_memmove(void *dest, const void *src, size_t n);
-char			*ft_strnstr(char *haystack, char *needle, unsigned int len);
+char			*ft_strnstr(const char *haystack, const char *needle, unsigned int len);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			**ft_split(char const *s, char c);

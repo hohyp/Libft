@@ -6,14 +6,11 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 21:17:01 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/18 04:43:03 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/01/30 21:55:28 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if (c > 64 && c < 91)
-		return (c + 32);
-	else
-		return (c);
+	return ((c > 64 && c < 91) ? (c + 32) : c);
 }

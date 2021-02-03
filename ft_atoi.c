@@ -6,7 +6,7 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 04:39:48 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/18 04:39:56 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/02/01 00:02:41 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *s)
 	flag = 0;
 	while ((*s >= 9 && *s <= 13) || *s == 32)
 		s++;
-	if ((*s == '-' || *s == '+') && (s[1] >= '0' && s[1] <= '9'))
+	if (*s == '-' || *s == '+')
 	{
 		if (*s == '-')
 			flag = 1;
@@ -30,6 +30,5 @@ int	ft_atoi(const char *s)
 		result = result * 10 + (*s - 48);
 		s++;
 	}
-	result = flag == 1 ? -result : result;
-	return (result == 0 ? 0 : result);
+	return (flag == 1 ? -result : result);
 }

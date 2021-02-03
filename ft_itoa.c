@@ -6,13 +6,13 @@
 /*   By: hohypark <hohypark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 04:41:22 by hohypark          #+#    #+#             */
-/*   Updated: 2021/01/18 04:41:22 by hohypark         ###   ########.fr       */
+/*   Updated: 2021/01/30 21:24:25 by hohypark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_digit(int n)
+static int		get_digit(int n)
 {
 	int	count;
 
@@ -30,7 +30,7 @@ int		get_digit(int n)
 	return (count);
 }
 
-char	*ft_putnum(char *str, int n, int i)
+static char	*ft_putnum(char *str, int n, int i)
 {
 	int	tmp;
 
